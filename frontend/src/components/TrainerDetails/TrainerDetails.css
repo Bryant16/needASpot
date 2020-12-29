@@ -2,3 +2,9 @@
     display: flex;
     flex-direction: row;
 }
+
+.trainerCards ul {
+    background-color: lightgray;
+    border: 1px solid black;
+    margin: 5px;
+}
