@@ -1,43 +1,16 @@
-import './TrainerDetails.css';
-import trainer from '../../images/trainer.png';
-function TrainerDetails() {
-    return(
-        <>
-        <h2>Strength Training</h2>
-        <div className='trainerCards'>
-        <ul>
-            <img className='trainerimage' src={trainer} alt='' />
-            <li>name</li>
-            <li>rating</li>
-            <li>details</li>
-        </ul>
-        <ul>
-            <li>image</li>
-            <li>name</li>
-            <li>rating</li>
-            <li>details</li>
-        </ul>
-        <ul>
-            <li>image</li>
-            <li>name</li>
-            <li>rating</li>
-            <li>details</li>
-        </ul>
-        <ul>
-            <li>image</li>
-            <li>name</li>
-            <li>rating</li>
-            <li>details</li>
-        </ul>
-        <ul>
-            <li>image</li>
-            <li>name</li>
-            <li>rating</li>
-            <li>details</li>
-        </ul>
-        </div>
-        </>
-    )
+import { useEffect } from "react";
+import "./TrainerDetails.css";
+import trainer from "../../images/trainer.png";
+
+function TrainerDetails({ name, style }) {
+  return (
+    <ul>
+      <img className="trainerimage" src={trainer} alt="" />
+      <li>{name}</li>
+      {/* <li>{id}</li> */}
+      <li>{style}</li>
+    </ul>
+  );
 }
 
 export default TrainerDetails;

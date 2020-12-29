@@ -5,7 +5,7 @@ const usersRouter = require('./users.js');
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
-const { User } = require('../../db/models');
+const { User, Trainer } = require('../../db/models');
 router.get(
   '/set-token-cookie',
   asyncHandler(async (req, res) => {
@@ -25,15 +25,11 @@ router.get('/restore-user', restoreUser, (req, res) => {
   return res.json(req.user);
 });
 
-// // GET /api/require-auth
-// const { requireAuth } = require('../../utils/auth.js');
-// router.get(
-//   '/require-auth',
-//   requireAuth,
-//   (req, res) => {
-//     return res.json(req.user);
-//   }
-// );
+router.get('/trainer', asyncHandler(async (req, res)=>{
+  const trainers = await Trainer.findAll();
+  
+  return res.json(trainers);
+}));
 
 router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
