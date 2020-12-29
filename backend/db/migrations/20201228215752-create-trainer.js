@@ -30,15 +30,15 @@ module.exports = {
       },
       certifications: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       education: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      bio: {
+      specialities: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       gym: {
         type: Sequelize.STRING
@@ -55,7 +55,7 @@ module.exports = {
       },
       phoneNumber: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

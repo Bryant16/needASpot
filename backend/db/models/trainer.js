@@ -23,14 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       certifications: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       education: {
         type: DataTypes.STRING,
       },
-      bio: {
-        type: DataTypes.STRING,
+      specialities: {
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       gym: {
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       phoneNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
