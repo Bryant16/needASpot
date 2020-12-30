@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Favorite } = require('../../db/models');
 
 const router = express.Router();
 
@@ -40,5 +40,14 @@ router.post(
     });
   })
 );
+
+router.get('/:id', asyncHandler(async (req, res)=>{
+  const {id} = req.params;
+  const user = await User.findAll({
+    where: {id: id},
+    include: [Favorite]
+  });
+  res.json(user)
+}));
 
 module.exports = router;
