@@ -1,7 +1,7 @@
 const express = require('express');
 const { check } = require('express-validator');
 const asyncHandler = require('express-async-handler');
-
+const { Op } = require("sequelize");
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User, Trainer, Review  } = require('../../db/models');
@@ -15,6 +15,28 @@ router.get('/', asyncHandler(async (req, res)=>{
     
     return res.json({trainers});
   }));
+router.get('/:id', asyncHandler(async (req,res)=>{
+    const {id} = req.params;
+    const trainers = await Trainer.findByPk(id)
+    const reviews = await Review.findAll({
+        where:{trainerId: id}
+    });
+
+    return res.json({trainers, reviews})
+}));
+
+router.get('/trainerStyle/:type', asyncHandler(async(req, res)=>{
+    const {type} = req.params
+    const strength = await Trainer.findAll({
+        where: {
+            specialities: {
+                [Op.like]: `%${type}%`
+            }
+        },
+    })
+    return res.json({strength})
+
+}));
 
 router.get('/reviews/:trainerId', asyncHandler(async (req, res)=>{
     const {trainerId} = req.params;
