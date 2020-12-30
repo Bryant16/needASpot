@@ -13,7 +13,7 @@ router.get('/', asyncHandler(async (req, res)=>{
         include: [Review]
     });
     
-    return res.json(trainers);
+    return res.json({trainers});
   }));
 
 router.get('/reviews/:trainerId', asyncHandler(async (req, res)=>{
