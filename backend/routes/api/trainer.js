@@ -4,13 +4,13 @@ const asyncHandler = require('express-async-handler');
 const { Op } = require("sequelize");
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Trainer, Review  } = require('../../db/models');
+const { User, Trainer, Review, Favorite  } = require('../../db/models');
 
 const router = express.Router();
 
 router.get('/', asyncHandler(async (req, res)=>{
     const trainers = await Trainer.findAll({
-        include: [Review]
+        include: [Review, Favorite]
     });
     
     return res.json({trainers});
