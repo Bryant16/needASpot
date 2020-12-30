@@ -1,16 +1,12 @@
 import TrainerDetails from "../TrainerDetails";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTrainers, getReviewsForATrainer } from "../../store/trainer";
 
 function TrainerDisplay({category}) {
   const dispatch = useDispatch();
   const trainers = useSelector((state) => {
     return state.trainer;
   });
-  useEffect(() => {
-    dispatch(getAllTrainers());
-  }, []);
+  
 //  console.log(trainers.map(train=> train.specialities.includes('Strength')))
   return (
     <div>

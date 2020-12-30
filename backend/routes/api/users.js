@@ -47,7 +47,11 @@ router.get('/:id', asyncHandler(async (req, res)=>{
     where: {id: id},
     include: [Favorite]
   });
-  res.json(user)
+ 
+    const favorites = user[0].Favorites
+    
+    res.json({favorites: favorites})
+  
 }));
 
 module.exports = router;

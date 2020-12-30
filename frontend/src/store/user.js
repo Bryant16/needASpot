@@ -1,7 +1,13 @@
 import {fetch} from './csrf';
 
 const USERFAVORITES = '/user/USERFAVORITES'
+const NEWFAVORITE = '/user/NEWFAVORITE';
 
+const newFavorite = ()=>{
+    return {
+        type: NEWFAVORITE,
+    }
+}
 const userFavorites = (favorites) =>{
     return {
         type: USERFAVORITES,
@@ -9,10 +15,17 @@ const userFavorites = (favorites) =>{
     }
 }
 
-export const getUser = (id) => {
+export const newFavorite = (userId, trainId) =>{
+    return async (dispatch)=>{
+        const res = await fetch(`/api/users/${userid}/trainer/${trainId}`);
+        
+    }
+}
+export const getUserFavorites = (id) => {
     return async (dispatch) =>{
         const res = await fetch(`/api/users/${id}`);
-        dispatch(userFavorites(res.data.user))
+        // console.log(res.data.favorites)
+        dispatch(userFavorites(res.data.favorites))
     }
 }
 

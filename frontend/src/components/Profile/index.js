@@ -5,14 +5,10 @@ import {getUser} from '../../store/user';
 
 function Profile() {
     const {userId} = useParams();
-    const dispatch = useDispatch();
     const userStateInfor = useSelector((state)=>{
       return state.user
     });
 
-    useEffect(()=>{
-      dispatch(getUser(userId))
-    },[]);
 
     return (
       <div>
