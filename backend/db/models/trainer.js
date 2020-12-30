@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       profileUrl: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: DataTypes.STRING
       }
     },
     {}
