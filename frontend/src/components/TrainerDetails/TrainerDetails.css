@@ -8,6 +8,7 @@
     border: 1px solid black;
     margin: 5px;
     list-style: none;
+    text-decoration: none;
     padding: 0px;
     display: inline-flex;
     flex-direction: column;

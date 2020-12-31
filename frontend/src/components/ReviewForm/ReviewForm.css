@@ -1,0 +1,16 @@
+.reviewForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+select {
+    width: 7%;
+    height:5%;
+    
+}
+
+

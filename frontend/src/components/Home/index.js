@@ -1,16 +1,24 @@
-import TrainerDisplay from '../TrainerDisplay';
+import Main from "../mainPage";
+import {Switch, Route} from 'react-router-dom';
+import TrainerProfile from '../TrainerProfile';
+import Profile from '../Profile';
 
 function Home() {
-    //grab all the trainers in the database given a criteria, training style.  
-    //display those trainers
-    //the trainer display needs to show the title 
+  //grab all the trainers in the database given a criteria, training style.
+  //display those trainers
+  //the trainer display needs to show the title
   return (
-    <div>
-      <div>
-        <h1>Make a reservation </h1>
-      </div>
-      <TrainerDisplay />
-    </div>
+    <Switch>
+      <Route exact path='/'>
+        <Main />
+      </Route>
+      <Route exact path='/trainer/:id'>
+        <TrainerProfile />
+      </Route>
+      <Route path='/profile/:userId'>
+        <Profile />
+      </Route>
+    </Switch>
   );
 }
 
