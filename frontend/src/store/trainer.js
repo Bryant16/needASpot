@@ -1,5 +1,6 @@
 import {fetch} from './csrf';
 
+const ADDREVIEW = '/trainers/ADDREVIEW';
 const ALL_TRAINERS = '/trainers/ALL_TRAINERS';
 const REVIEWS_FOR_A_TRAINER = '/trainers/REVIEWS_FOR_A_TRAINER';
 
@@ -8,7 +9,16 @@ const allTrainers = (listOfTrainers) => ({
     type: ALL_TRAINERS,
     listOfTrainers,
   });
-  
+ 
+export const addReview = (newReview, trainerId, userId) => {
+    return async (dispatch) =>{
+        let res = await fetch('/api/reviews',{
+            method: 'POST',
+            body: JSON.stringify({newReview, trainerId, userId})
+        });
+        dispatch(allTrainers(res.data.trainers))
+    }
+}
 export const getAllTrainers = ()=> {
     return async (dispatch) =>{
         const response = await fetch('/api/trainer');

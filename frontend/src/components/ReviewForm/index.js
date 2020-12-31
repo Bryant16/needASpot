@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
-import { getAllTrainers } from '../../store/trainer';
+import { getAllTrainers, addReview } from '../../store/trainer';
 import './ReviewForm.css';
 
 const ReviewForm = () =>{
@@ -34,14 +34,13 @@ const ReviewForm = () =>{
             review
         };
         if(newReview){
-        console.log(newReview);
-        console.log('trainer id', id, 'userId',sessionUser.id )
-        // dispatch(createAReview(newReview))
-        await fetch('/api/reviews',{
-            method: 'POST',
-            body: JSON.stringify({newReview})
-        })
-        dispatch(getAllTrainers())
+        // console.log(newReview);
+        let userId = sessionUser.id;
+        let trainerId = id;
+        // console.log('trainer id', trainerId, 'userId',userId )
+        dispatch(addReview(newReview, trainerId, userId ))
+        // console.log(res.data)
+        // dispatch(getAllTrainers())
         }
         setReview('');
     };

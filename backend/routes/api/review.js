@@ -6,9 +6,22 @@ const { User, Trainer, Review, Favorite  } = require('../../db/models');
 const router = express.Router();
 
 router.post('/', asyncHandler(async(req, res)=>{
-    const{newReview} = req.body;
-    console.log('this is the review',newReview)
-
+    const{newReview, trainerId, userId} = req.body;
+    const review = await Review.create({
+        userId: Number(userId) ,
+        trainerId: Number(trainerId) ,
+        review: newReview.review ,
+        stars: Number(newReview.stars),
+        overall: Number(newReview.overall),
+        knowledge: Number(newReview.knowledge),
+        profesionalism: Number(newReview.prof),
+        refer: Number(newReview.refer),
+    })
+    const trainers = await Trainer.findAll({
+        include: [Review, Favorite]
+    });
+    
+    return res.json({trainers});
 }));
 
 module.exports = router;
