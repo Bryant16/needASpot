@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import {newFavoriteTrainer, removeFavoriteTrainer} from '../../store/user';
 import {getUserFavorites} from '../../store/user';
 import {getAllTrainers} from '../../store/trainer';
+import ReviewForm from '../ReviewForm';
 import './TrainerProfile.css';
 
 function TrainerProfile() {
@@ -53,6 +54,7 @@ function TrainerProfile() {
       </h1>
       <h2>{singleTrainer.certifications}</h2>
       <h2>reviews</h2>
+      <ReviewForm />
       {singleTrainer.Reviews.map((review) => (
         <h2>{review.review}</h2>
       ))}
