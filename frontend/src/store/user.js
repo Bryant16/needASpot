@@ -3,9 +3,10 @@ import {fetch} from './csrf';
 const USERFAVORITES = '/user/USERFAVORITES'
 const NEWFAVORITE = '/user/NEWFAVORITE';
 
-const newFavorite = ()=>{
+const newFavorite = (newTrainerFavorite)=>{
     return {
         type: NEWFAVORITE,
+        favorite:newTrainerFavorite
     }
 }
 const userFavorites = (favorites) =>{
@@ -15,10 +16,11 @@ const userFavorites = (favorites) =>{
     }
 }
 
-export const newFavorite = (userId, trainId) =>{
+export const newFavoriteTrainer = (userId, trainId) =>{
     return async (dispatch)=>{
-        const res = await fetch(`/api/users/${userid}/trainer/${trainId}`);
-        
+        const res = await fetch(`/api/favorites/users/${userId}/trainer/${trainId}`);
+        console.log(res.data)
+        dispatch(newFavorite(res.data.createFav))
     }
 }
 export const getUserFavorites = (id) => {
@@ -37,6 +39,9 @@ const userReducer = (state= initalState, action)=>{
         case USERFAVORITES: {
             newState = action.favorites
             return newState;
+        }
+        case NEWFAVORITE:{
+            return [...state, action.favorite]
         }
         default:
             return state;
