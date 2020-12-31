@@ -22,5 +22,17 @@ router.get(`/users/:userid/trainer/:trainId`, asyncHandler( async(req, res)=>{
         })
 }));
 
+router.delete(`/users/:userid/trainer/:trainId`, asyncHandler(async(req, res)=>{
+    const {userid, trainId} = req.params;
+    const deleteFav = await Favorite.findOne({
+        where:{
+            userId: userid,
+            trainerId: trainId
+        }
+    });
+    await deleteFav.destroy();
+    res.json(deleteFav)
+}));
+
 
 module.exports = router;

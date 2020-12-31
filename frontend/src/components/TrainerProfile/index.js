@@ -18,7 +18,7 @@ function TrainerProfile() {
   const { id } = useParams();
   const trainerLookUpId = Number(id);
   const userId = Number(sessionUser.id);
-  console.log(trainerLookUpId, userId)
+  console.log(userId, trainerLookUpId )
   const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
   const favoritesForCurrentUser = singleTrainer.Favorites;
@@ -30,9 +30,10 @@ function TrainerProfile() {
   const favorite = (e)=>{
     e.preventDefault();
     if(userLikedThisTrainer.length > 0){
-      console.log('works')
+      console.log('unlike')
       dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
+      console.log('like')
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
     dispatch(getAllTrainers())
