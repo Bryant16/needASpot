@@ -37,9 +37,9 @@ const ReviewForm = () =>{
         console.log(newReview);
         console.log('trainer id', id, 'userId',sessionUser.id )
         // dispatch(createAReview(newReview))
-        fetch('/api/reviews',{
+        await fetch('/api/reviews',{
             method: 'POST',
-            body: JSON.stringify(newReview)
+            body: JSON.stringify({newReview})
         })
         dispatch(getAllTrainers())
         }
