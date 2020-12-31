@@ -15,7 +15,11 @@ const userFavorites = (favorites) =>{
         favorites
     }
 }
-
+export const removeFavoriteTrainer = (userId, trainId) =>{
+    return async (dispatch)=>{
+        const res = await fetch(`/api/favorites/users/${userId}/trainer/${trainId}`)
+    }
+}
 export const newFavoriteTrainer = (userId, trainId) =>{
     return async (dispatch)=>{
         const res = await fetch(`/api/favorites/users/${userId}/trainer/${trainId}`);
@@ -43,6 +47,7 @@ const userReducer = (state= initalState, action)=>{
         case NEWFAVORITE:{
             return [...state, action.favorite]
         }
+        case 
         default:
             return state;
     }

@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import {useEffect} from 'react';
-import {newFavoriteTrainer} from '../../store/user';
+import {newFavoriteTrainer, removeFavoriteTrainer} from '../../store/user';
 import {getUserFavorites} from '../../store/user';
+import {getAllTrainers} from '../../store/trainer';
 
 function TrainerProfile() {
   const dispatch = useDispatch();
@@ -30,9 +31,11 @@ function TrainerProfile() {
     e.preventDefault();
     if(userLikedThisTrainer.length > 0){
       console.log('works')
+      dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
+    dispatch(getAllTrainers())
   }
   useEffect(()=>{
     dispatch(getUserFavorites(sessionUser.id))
