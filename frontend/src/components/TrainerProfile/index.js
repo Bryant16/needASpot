@@ -15,28 +15,28 @@ function TrainerProfile() {
 
   const sessionUser = useSelector(state => state.session.user)
   const { id } = useParams();
-  const lookUpId = Number(id);
-
-  const trainerDetails = trainers.filter((train) => train.id === lookUpId);
+  const trainerLookUpId = Number(id);
+  const userId = Number(sessionUser.id);
+  console.log(trainerLookUpId, userId)
+  const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
-  // const favorites = singleTrainer.Favorites;
-  // const userLikedThisTrainer = favorites.filter(fav => fav.userId === sessionUser.id)
-  useEffect(()=>{
-    dispatch(getUserFavorites(sessionUser.id))
-  },[dispatch])
+  const favoritesForCurrentUser = singleTrainer.Favorites;
+  const userLikedThisTrainer = favoritesForCurrentUser.filter(fav => fav.userId === sessionUser.id)
+  
   // console.log(userLikedThisTrainer)
   // console.log(favorites)
 
   const favorite = (e)=>{
     e.preventDefault();
-    dispatch(newFavoriteTrainer(12,12))
-    // if(userLikedThisTrainer.length > 0){
-    //   console.log('works')
-      
-    // }else{
-    //   console.log('nope')
-    // }
+    if(userLikedThisTrainer.length > 0){
+      console.log('works')
+    }else{
+      dispatch(newFavoriteTrainer(userId,trainerLookUpId))
+    }
   }
+  useEffect(()=>{
+    dispatch(getUserFavorites(sessionUser.id))
+  },[dispatch])
   // singleTrainer.Reviews.forEach((review) => console.log(review.review));
   return (
     <div>
