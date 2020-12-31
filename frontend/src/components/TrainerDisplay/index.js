@@ -13,7 +13,7 @@ function TrainerDisplay({category}) {
     <h2>{category}</h2>
     <div className="trainerCards">
       {trainers.slice(0,8).map(train=>{
-        return(<TrainerDetails key={train.id} id={train.id} name={train.name} location={train.address}/>)
+        return(<TrainerDetails key={train.id} id={train.id} name={train.name} location={train.address} image={train.profileUrl || ''}/>)
       })}
     </div>
     </div>

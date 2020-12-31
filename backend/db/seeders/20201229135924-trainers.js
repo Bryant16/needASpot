@@ -1,6 +1,9 @@
 "use strict";
 const faker = require("faker");
-
+console.log(faker.image.people())
+// console.log(faker.internet.avatar())
+console.log(`${faker.image.imageUrl()}?random=${Date.now()}`)
+console.log(`${faker.image.imageUrl()}?random=${Date.now()+1}`)
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
