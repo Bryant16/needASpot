@@ -9,7 +9,7 @@ import './TrainerProfile.css';
 function TrainerProfile() {
   const dispatch = useDispatch();
   const { id } = useParams();
-
+  // const [load, setLoad] = useState(false);
   const trainers = useSelector((state) => {
     return state.trainer;
   });
@@ -23,7 +23,7 @@ function TrainerProfile() {
   // console.log(activeButton)
   const sessionUser = useSelector(state => state.session.user)
   const userId = Number(sessionUser.id);
-  console.log(userId, trainerLookUpId )
+  console.log(userId, trainerLookUpId );
   const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
   
@@ -42,12 +42,13 @@ function TrainerProfile() {
     }
   }
   useEffect(()=>{
+    dispatch(getAllTrainers())
     dispatch(getUserFavorites(sessionUser.id));
   },[dispatch])
 
   return (
-    <div>
-      <h1>Name: {trainerDetails[0].name}
+      <div>
+      <h1>Name: {singleTrainer.name}
       <button className={activeButton ? `favoriteButton` : null} onClick={favorite}>Favorite</button>
       </h1>
       <h2>{singleTrainer.certifications}</h2>
@@ -55,7 +56,8 @@ function TrainerProfile() {
       {singleTrainer.Reviews.map((review) => (
         <h2>{review.review}</h2>
       ))}
-    </div>
+      </div>
+
   );
 }
 
