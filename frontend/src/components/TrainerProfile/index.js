@@ -45,7 +45,7 @@ function TrainerProfile() {
   useEffect(()=>{
     dispatch(getAllTrainers())
     dispatch(getUserFavorites(sessionUser.id));
-  },[dispatch])
+  },[dispatch ])
 
   return (
       <div>
