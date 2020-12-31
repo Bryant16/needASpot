@@ -22,21 +22,22 @@ function TrainerProfile() {
   const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
   const favoritesForCurrentUser = singleTrainer.Favorites;
-  const userLikedThisTrainer = favoritesForCurrentUser.filter(fav => fav.userId === sessionUser.id)
+  // const userLikedThisTrainer = favoritesForCurrentUser.filter(fav => fav.userId === sessionUser.id)
   
   // console.log(userLikedThisTrainer)
-  // console.log(favorites)
-
+  console.log(favorites)
+  let trainerIsFavorited = favorites.filter((fav)=> Number(fav.trainerId) === trainerLookUpId)
+    // console.log(trainerIsFavorited)
   const favorite = (e)=>{
     e.preventDefault();
-    if(userLikedThisTrainer.length > 0){
+    if(trainerIsFavorited.length > 0){
       console.log('unlike')
       dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
       console.log('like')
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
-    dispatch(getAllTrainers())
+    // dispatch(getAllTrainers())
   }
   useEffect(()=>{
     dispatch(getUserFavorites(sessionUser.id))
