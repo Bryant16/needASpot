@@ -9,11 +9,12 @@ function TrainerDetails({ id, name, location, image }) {
   
   return (
     <ul>
-      <NavLink to={`/trainer/${id}`}>
+      {/* <NavLink to={`/trainer/${id}`}> */}
       <img className="trainerimage" src={image} alt="" />
-      <li>{name}</li>
+      <li className='trainerName'>{name}</li>
+      <li className='trainerReviews'><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>10 reviews</li>
       <li>{location}</li>
-      </NavLink>
+      {/* </NavLink> */}
     </ul>
   );
 }

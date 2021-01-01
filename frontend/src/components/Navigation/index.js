@@ -5,6 +5,7 @@ import Home from '../Home'
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import logo from '../../images/needASpot.png'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -12,7 +13,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
+      <img className='logo' src={logo} />
       <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -24,10 +28,10 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
+    <ul className='navBar'>
       <li>
-        <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
+        <NavLink exact to="/">Home</NavLink>
       </li>
     </ul>
   );

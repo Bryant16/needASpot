@@ -22,3 +22,9 @@
   position: absolute;
   background-color:white;
 }
+
+body {
+  padding: 0;
+  margin-right: 5px;
+  
+}
