@@ -31,7 +31,12 @@ function Navigation({ isLoaded }){
     <ul className='navBar'>
       <li>
         <NavLink exact to="/"><img className='logo' src={logo} /></NavLink>
+      </li>
+      <li className='items'>
         {isLoaded && sessionLinks}
+        <i class="far fa-calendar"></i>
+          <i class="far fa-bell"></i>
+          <i class="fas fa-search"></i>
       </li>
     </ul>
   );

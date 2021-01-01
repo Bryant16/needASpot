@@ -5,6 +5,7 @@
 .logo {
  
 }
+
 .navBar {
   border: 1px solid white;
   border-bottom: 1px solid lightgray;
@@ -13,4 +14,37 @@
   display: flex;
   list-style: none;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.fa-search {
+
+  padding-left: 10px;
+
+}
+
+.items {
+  padding-left:10px ;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.items > button {
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.fa-bell {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.fa-calendar {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
