@@ -19,12 +19,12 @@ function TrainerProfile() {
   });
   const trainerLookUpId = Number(id);
   let trainerIsFavorited = favorites.filter((fav)=> Number(fav.trainerId) === trainerLookUpId)
-  // console.log(trainerIsFavorited)
+  
   const [activeButton, setActiveButton] = useState(!trainerIsFavorited.toString());
-  // console.log(activeButton)
+  
   const sessionUser = useSelector(state => state.session.user)
   const userId = Number(sessionUser.id);
-  console.log(userId, trainerLookUpId );
+  
   const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
   
@@ -33,11 +33,11 @@ function TrainerProfile() {
   const favorite = (e)=>{
     e.preventDefault();
     if(trainerIsFavorited.length > 0){
-      console.log('unlike')
+      
       setActiveButton(true)
       dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
-      console.log('like')
+      
       setActiveButton(false)
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
@@ -46,8 +46,8 @@ function TrainerProfile() {
     dispatch(getAllTrainers())
     dispatch(getUserFavorites(sessionUser.id));
   },[dispatch ])
-
-  return (
+  console.log(favorites)
+  return (trainers.length > 0  && favorites.length > 0 &&
       <div>
       <h1>Name: {singleTrainer.name}
       <button className={activeButton ? `favoriteButton` : null} onClick={favorite}>Favorite</button>

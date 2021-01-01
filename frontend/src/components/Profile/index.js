@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import{useDispatch, useSelector} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
+import { getAllTrainers } from '../../store/trainer';
 import {getUser} from '../../store/user';
 import {getUserFavorites} from '../../store/user';
 import TrainerDisplay from '../TrainerDisplay';
+import './Profile.css';
+
 function Profile() {
     const {userId} = useParams();
     const dispatch = useDispatch();
@@ -11,22 +15,28 @@ function Profile() {
     const userStateInfo = useSelector((state)=>{
       return state.user
     });
-    // let trainersToFindIds = userStateInfo.map(fav => fav.trainerId );
-    // let trainers = trainerState.map(train=> trainersToFindIds.include(train.id))
-    // console.log(trainersToFindIds)
-    // console.log(trainers)
-    
-    // userStateInfo.map(fav => console.log(fav.Trainer.name))
-    console.log(Number(userId))
+   
+    const currUser = useSelector((state)=>{
+      return state.session.user;
+    })
+
     useEffect(()=>{
+      dispatch(getAllTrainers(Number(userId)))
       dispatch(getUserFavorites(Number(userId)))
     },[dispatch])
-
+    console.log(currUser)
     return (
       <div>
-      <h1>My Profile page</h1>
+      <h1>{currUser.username}</h1>
       <h2>Favorites</h2>
-      {userStateInfo[userStateInfo.length -1].Trainer && userStateInfo.map(fav=><p>{fav.Trainer.name}</p>)}
+      {userStateInfo.length > 0 && userStateInfo[userStateInfo.length -1].Trainer 
+      && userStateInfo.map(fav=>
+        <>
+      <img src={fav.Trainer.profileUrl} />
+      <p>{fav.Trainer.name}</p>
+      <NavLink to={`/trainer/${fav.Trainer.id}`}>write a review</NavLink>
+      </>
+      )}
 
       </div>
     );
