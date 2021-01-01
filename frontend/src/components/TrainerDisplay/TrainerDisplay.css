@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: row;
     text-decoration: none;
+    overflow-x:scroll;
+    width: 100%;
+}
+
+.trainerCards::-webkit-scrollbar{
+    display: none;
 }
 
 h2 {

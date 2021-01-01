@@ -35,19 +35,16 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button onClick={openMenu} >
+        <i className="far fa-user" />
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>Favorites</li>
-          {/* <NavLink path='/'>Favorites</NavLink> */}
-          <li>
+          <li className='userName'>Hello, {user.username}!</li>
+          <li className="profileButtons">
           <button onClick={profile}>My Profile</button>
           </li>
-          <li>
+          <li className="profileButtons">
             <button onClick={logout}>Log Out</button>
           </li>
         </ul>

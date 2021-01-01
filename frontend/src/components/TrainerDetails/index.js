@@ -8,7 +8,7 @@ import {getAllTrainers} from '../../store/trainer';
 function TrainerDetails({ id, name, location, image }) {
   
   return (
-    <ul>
+    <ul class='card'>
       {/* <NavLink to={`/trainer/${id}`}> */}
       <img className="trainerimage" src={image} alt="" />
       <li className='trainerName'>{name}</li>
