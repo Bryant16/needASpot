@@ -14,7 +14,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-      <img className='logo' src={logo} />
+      
       <ProfileButton user={sessionUser} />
       </>
     );
@@ -30,8 +30,8 @@ function Navigation({ isLoaded }){
   return (
     <ul className='navBar'>
       <li>
+        <NavLink exact to="/"><img className='logo' src={logo} /></NavLink>
         {isLoaded && sessionLinks}
-        <NavLink exact to="/">Home</NavLink>
       </li>
     </ul>
   );
