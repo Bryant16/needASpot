@@ -26,18 +26,19 @@ function Profile() {
     },[dispatch])
     console.log(currUser)
     return (
-      <div>
-      <h1>{currUser.username}</h1>
+      <div className='profileContainer'>
+      <h1>Hello, {currUser.username}</h1>
+      <div className='favContainer'>
       <h2>Favorites</h2>
       {userStateInfo.length > 0 && userStateInfo[userStateInfo.length -1].Trainer 
       && userStateInfo.map(fav=>
-        <>
-      <img src={fav.Trainer.profileUrl} />
-      <p>{fav.Trainer.name}</p>
-      <NavLink to={`/trainer/${fav.Trainer.id}`}>write a review</NavLink>
-      </>
+      <div className='favoriteTrainers'>
+        <img src={fav.Trainer.profileUrl} />
+        <p>{fav.Trainer.name} - {fav.Trainer.address}
+        <NavLink to={`/trainer/${fav.Trainer.id}`}><p><i class='far fa-comment-alt'></i>Write a Review</p></NavLink></p>
+      </div>
       )}
-
+      </div>
       </div>
     );
   }
