@@ -1,16 +1,24 @@
 .reviewForm {
-    display: flex;
-    flex-direction: row;
+    display:flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
     width: 30%;
     height: 100%;
     border: 1px solid black;
 }
 
 select {
+   
     width: 7%;
     height:5%;
     
+}
+
+.reviewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

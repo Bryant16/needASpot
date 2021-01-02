@@ -2,6 +2,7 @@ import Main from "../mainPage";
 import {Switch, Route} from 'react-router-dom';
 import TrainerProfile from '../TrainerProfile';
 import Profile from '../Profile';
+import ReviewForm from "../ReviewForm";
 
 function Home() {
   //grab all the trainers in the database given a criteria, training style.
@@ -17,6 +18,9 @@ function Home() {
       </Route>
       <Route path='/profile/:userId'>
         <Profile />
+      </Route>
+      <Route  path='/trainer/:trainerId/review' >
+        <ReviewForm />
       </Route>
     </Switch>
   );

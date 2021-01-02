@@ -1,5 +1,70 @@
 .favoriteButton {
-    background-color: blue;
+    color: red;
+    border: none;
+   
+}
+
+.background button {
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: white;
+}
+.fa-heart {
+    /* padding: 10px; */
+    font-size: 45px;
 }
 
 
+
+
+.background {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    
+}
+
+.reviewContainer {
+   align-self: flex-start;
+   text-align: left;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: 100%;
+}
+.reviewContainer h2 {
+    width: 100%;
+    margin: 0;
+}
+.reviewContainer h4 {
+    margin: 0;
+}
+
+.review {
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+}
+
+.trainerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow:-1px -1px 15px 0px #CECECE ; 
+    padding-left: 10px;
+    width: 85%;
+    height: 900px;
+    align-self: center;
+}
+
+p {
+    margin: 0;
+}
+ul {
+    padding: 0;
+}
+li {
+    list-style: none;
+}

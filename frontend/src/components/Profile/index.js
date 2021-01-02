@@ -35,7 +35,7 @@ function Profile() {
       <div className='favoriteTrainers'>
         <img src={fav.Trainer.profileUrl} />
         <p>{fav.Trainer.name} - {fav.Trainer.address}
-        <NavLink to={`/trainer/${fav.Trainer.id}`}><p><i class='far fa-comment-alt'></i>Write a Review</p></NavLink></p>
+        <NavLink to={`/trainer/${fav.Trainer.id}/review`}><p><i class='far fa-comment-alt'></i>Write a Review</p></NavLink></p>
       </div>
       )}
       </div>
