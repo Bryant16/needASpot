@@ -55,67 +55,64 @@ const ReviewForm = () =>{
     console.log(stars)
     return (
         trainer.length > 0 &&
-        <div className='reviewContainer'>
+        <div className='reviewContainers'>
         <h1>{sessionUser.username}, how was your experience with {trainerName[0].name}</h1>
         <form className='reviewForm'>
-            <div>
+            <div className='inputContainer'>
                 <label>stars
-                <input type='radio'     onChange={updateStars} />
-                <input type='radio'     onChange={updateStars}/>
-                <input type='radio'     onChange={updateStars}/>
-                <input type='radio'     onChange={updateStars}/>
-                <input type='radio'     onChange={updateStars}/>
                 </label>
-                {/* <input type='radio' name='star'><label><i class='far fa-star'></i></label></input> */}
-            {/* <label>stars</label>
-            <select onChange={updateStars}>
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-            </select> */}
+                <div>
+                <input type='radio' value={1} checked={stars === '1'}onChange={e=>setStars(e.target.value)} />
+                <input type='radio' value={2} checked={stars === '2'}onChange={e=>setStars(e.target.value)}/>
+                <input type='radio' value={3} checked={stars === '3'}onChange={e=>setStars(e.target.value)}/>
+                <input type='radio' value={4} checked={stars === '4'}onChange={e=>setStars(e.target.value)}/>
+                <input type='radio' value={5} checked={stars === '5'}onChange={e=>setStars(e.target.value)}/>
+                </div>
             </div>
-            <div>
-            <label>Overall</label>
-            <select onChange={updateOverall} >
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-        </select>
-        </div> 
-        <div>
-            <label>Knowledge</label>
-            <select onChange={updateKnowledge}>
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-        </select>
-        </div>
-        <div>
-            <label>Profesionalism</label>
-            <select onChange={updateProf}>
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-        </select>
-        </div>
-        <div>
-            <label>Likely to Refer</label>
-            <select onChange={updateRefer}>
-            <option >5</option>
-            <option >4</option>
-            <option >3</option>
-            <option >2</option>
-            <option >1</option>
-        </select>
-        </div>
+            <div className='inputContainer'>
+                <label>Overall
+                </label>
+                <div>
+                <input type='radio' value={1} checked={overall === '1'}onChange={e=>setOverall(e.target.value)} />
+                <input type='radio' value={2} checked={overall === '2'}onChange={e=>setOverall(e.target.value)}/>
+                <input type='radio' value={3} checked={overall === '3'}onChange={e=>setOverall(e.target.value)}/>
+                <input type='radio' value={4} checked={overall === '4'}onChange={e=>setOverall(e.target.value)}/>
+                <input type='radio' value={5} checked={overall === '5'}onChange={e=>setOverall(e.target.value)}/>
+                </div>
+            </div>
+            <div className='inputContainer'>
+                <label>Knowledge
+                </label>
+                <div>
+                <input type='radio' value={1} checked={knowledge === '1'}onChange={e=>setKnowledge(e.target.value)} />
+                <input type='radio' value={2} checked={knowledge === '2'}onChange={e=>setKnowledge(e.target.value)}/>
+                <input type='radio' value={3} checked={knowledge === '3'}onChange={e=>setKnowledge(e.target.value)}/>
+                <input type='radio' value={4} checked={knowledge === '4'}onChange={e=>setKnowledge(e.target.value)}/>
+                <input type='radio' value={5} checked={knowledge === '5'}onChange={e=>setKnowledge(e.target.value)}/>
+                </div>
+            </div>
+            <div className='inputContainer'>
+                <label>Profesionalism
+                </label>
+                <div>
+                <input type='radio' value={1} checked={prof === '1'}onChange={e=>setProf(e.target.value)} />
+                <input type='radio' value={2} checked={prof === '2'}onChange={e=>setProf(e.target.value)}/>
+                <input type='radio' value={3} checked={prof === '3'}onChange={e=>setProf(e.target.value)}/>
+                <input type='radio' value={4} checked={prof === '4'}onChange={e=>setProf(e.target.value)}/>
+                <input type='radio' value={5} checked={prof === '5'}onChange={e=>setProf(e.target.value)}/>
+                </div>
+            </div>
+            <div className='inputContainer'>
+                <label>Likely to Refer
+                </label>
+                <div>
+                <input type='radio' value={1} checked={refer === '1'}onChange={e=>setRefer(e.target.value)} />
+                <input type='radio' value={2} checked={refer === '2'}onChange={e=>setRefer(e.target.value)}/>
+                <input type='radio' value={3} checked={refer === '3'}onChange={e=>setRefer(e.target.value)}/>
+                <input type='radio' value={4} checked={refer === '4'}onChange={e=>setRefer(e.target.value)}/>
+                <input type='radio' value={5} checked={refer === '5'}onChange={e=>setRefer(e.target.value)}/>
+                </div>
+            </div>
         <textarea placeholder='tell us about your experience' value={review} onChange={updateReview}/>
         <button onClick={handleSubmit}>Submit Review</button>
         </form>

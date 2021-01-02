@@ -1,21 +1,25 @@
 .reviewForm {
     display:flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
     width: 30%;
     height: 100%;
     border: 1px solid black;
 }
 
-select {
-   
-    width: 7%;
-    height:5%;
-    
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.reviewContainer {
+.inputContainer [type=radio] {
+    text-align: right;
+    /* background-image: url('../../images/needASpot.png'); */
+}
+
+.reviewContainers {
     display: flex;
     flex-direction: column;
     align-items: center;
