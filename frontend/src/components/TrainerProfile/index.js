@@ -73,7 +73,7 @@ function TrainerProfile() {
     
   },[dispatch])
 
-  return ( favorites.length > 0 && trainers.length >0 &&
+  return (  trainers.length >0 &&
     <div className='background'>
       <div className='trainerPicture' style={{backgroundImage: `url(${singleTrainer.profileUrl})`}}></div>
       <div className='trainerContainer'>
