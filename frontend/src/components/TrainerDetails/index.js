@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import {useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom'
 import {useDispatch} from 'react-redux';
 import "./TrainerDetails.css";
@@ -6,7 +7,8 @@ import trainer from "../../images/trainer.png";
 import {getAllTrainers} from '../../store/trainer';
 
 function TrainerDetails({ id, name, location, image }) {
-  
+ 
+
   return (
     <ul class='card'>
       {/* <NavLink to={`/trainer/${id}`}> */}

@@ -11,7 +11,7 @@ function TrainerDisplay({category}) {
 //  console.log(trainers.map(train=> train.specialities.includes('Strength')))
   return (
     <div>
-    <h2>{category}</h2>
+    <h2 className='trainerCategories'>{category}</h2>
     <div className="trainerCards">
       {trainers.map(train=>{
         return(

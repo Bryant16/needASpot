@@ -56,7 +56,10 @@ const ReviewForm = () =>{
     return (
         trainer.length > 0 &&
         <div className='reviewContainers'>
-        <h1>{sessionUser.username}, how was your experience with {trainerName[0].name}</h1>
+        <h1>{(sessionUser.username).toUpperCase()},
+        <p>How was your experience with {trainerName[0].name}</p>
+        </h1> 
+        
         <form className='reviewForm'>
             <div className='inputContainer'>
                 <label>stars

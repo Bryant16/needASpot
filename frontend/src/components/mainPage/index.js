@@ -1,11 +1,9 @@
 import TrainerDisplay from '../TrainerDisplay';
-
+import './MainPage.css';
 function Main() {
   return (
-    <div>
-      <div>
-        <h1>Make a reservation </h1>
-      </div>
+    
+    <div className='mainPageContainer'>
       <TrainerDisplay category={'Strength Training'}/>
       <TrainerDisplay category={'Fat Loss'}/>
       <TrainerDisplay category={'Athletic Development'}/>

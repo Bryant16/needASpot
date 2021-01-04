@@ -17,6 +17,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #ffffff;
 }
 
 .fa-search {
@@ -65,6 +66,7 @@
  transform: translateX(-50%);
  list-style: none;
  padding: 5px;
+ background-color: #ffffff;
  /* padding-right: 25px; */
  padding-bottom: 30px;
 }

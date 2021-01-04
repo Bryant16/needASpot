@@ -10,57 +10,100 @@ import './TrainerProfile.css';
 function TrainerProfile() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  // const [load, setLoad] = useState(false);
+  
   const trainers = useSelector((state) => {
     return state.trainer;
   });
   const favorites = useSelector((state)=>{
     return state.user;
   });
+  
   const trainerLookUpId = Number(id);
-  let trainerIsFavorited = favorites.filter((fav)=> Number(fav.trainerId) === trainerLookUpId)
-    console.log('fav',trainerIsFavorited.length>0)
-  const [activeButton, setActiveButton] = useState(trainerIsFavorited.length > 0);
+ 
+  let trainerIsFavorited =  favorites.filter((fav)=> Number(fav.trainerId) === trainerLookUpId)
+    console.log('fav',trainerIsFavorited.length)
+  const [activeButton, setActiveButton] = useState();
+  // console.log(activeButton)
   
   const sessionUser = useSelector(state => state.session.user)
   const userId = Number(sessionUser.id);
   
   const trainerDetails = trainers.filter((train) => train.id === trainerLookUpId);
   const singleTrainer = trainerDetails[0];
-  // const certs = singleTrainer.certifications.replace('{','').replace('}', '').replace('"','')
+
+  const trainerReviews = ()=>{
+    let stars = 0;
+    let count = 0
+    if(singleTrainer){
+
+    
+    singleTrainer.Reviews.forEach((review)=>{
+      stars += review.stars
+      count += 1;
+    });
+  }
+    return( 
+     { 
+      stars: Math.floor(stars / count),
+      reviews: count
+      }
+      )
+  };
   
-  // console.log(certs)
+  let starsReviews = trainerReviews();
+  
+
+  
+  
+
+
   const favorite = (e)=>{
     e.preventDefault();
     if(trainerIsFavorited.length > 0){
-      setActiveButton(true)
+      setActiveButton(false)
       dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
-      
-      setActiveButton(false)
+      setActiveButton(true)
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
   }
+
+
   useEffect(()=>{
-    dispatch(getAllTrainers())
     dispatch(getUserFavorites(sessionUser.id));
-  },[dispatch ])
-  // console.log(singleTrainer)
-  return (trainers.length > 0  && favorites.length > 0 &&
+    dispatch(getAllTrainers())
+    
+    console.log('active',activeButton)
+  },[dispatch])
+
+  return ( favorites.length > 0 && trainers.length >0 &&
     <div className='background'>
+      
+      <div className='trainerPicture' style={{backgroundImage: `url(${singleTrainer.profileUrl})`}}></div>
       <div className='trainerContainer'>
       <h1>{singleTrainer.name}
-      <button className={activeButton ? `favoriteButton` : null} onClick={favorite}><i class='far fa-heart'></i></button>
+      <button className={activeButton ? `favoriteButton` : 'unfavorite'} onClick={favorite}><i class='far fa-heart'></i></button>
       </h1>
-      <ul>certifications: {singleTrainer.certifications.replace('{','').replace('}', '').replace(/"/gi,'').split(',').map(cert=><li>{cert}</li>)}</ul>
-      <p>education:</p>
+      <h3>{starsReviews.stars}<i class="fas fa-star"></i>{starsReviews.reviews} reviews</h3>
+      <div className='certs'>
+      <ul>certifications:{singleTrainer.certifications.replace('{','').replace('}', '').replace(/"/gi,'').split(',').map(cert=><li>{cert}</li>)}</ul>
+      </div>
+      <div className='education'>
+      <p>Education:</p>
       <p>{singleTrainer.education}</p>
+      </div>
       <div className='reviewContainer'>
       <h2>What people are saying</h2>
       {singleTrainer.Reviews.map((review) => (
         <div className='review'>
-        <h4>stars {review.stars} overall {review.overall} knowledge {review.knowledge} Prof {review.profesionalism}Likely to Refer{review.refer}</h4>
-        <p>{console.log(review)}{review.review}</p>
+          <div>
+          <h4 className='reviewItems'>picture</h4>
+          </div>
+          <div>
+          <h4 className='reviewItems'><i class="fas fa-star"/>{review.stars}</h4> 
+          <p className='reviewItems'>overall {review.overall} knowledge {review.knowledge} Prof {review.profesionalism}Likely to Refer{review.refer}</p>
+          <p className='reviewItems'>{review.review}</p>
+          </div>
         </div>
       ))}
       </div>
