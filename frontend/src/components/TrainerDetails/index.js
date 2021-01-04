@@ -18,7 +18,7 @@ function TrainerDetails({ id, name, location, image, reviews }) {
         count ++
       })
     }
-    return Math.floor(stars/count)
+    return Math.floor(stars/count) || 0
   }
 
   return (
