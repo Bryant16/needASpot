@@ -2,9 +2,7 @@
   position: absolute;
   
 }
-.logo {
- 
-}
+
 
 .navBar {
   border: 1px solid white;
@@ -62,13 +60,13 @@
 .profile-dropdown {
   border: 1px solid rgb(168, 165, 165);
   border-radius: 2px;
- float: left;
+  position: fixed;
  transform: translateX(-50%);
  list-style: none;
  padding: 5px;
  background-color: #ffffff;
  /* padding-right: 25px; */
- padding-bottom: 30px;
+ padding-bottom: 20px;
 }
 
 .userName {
