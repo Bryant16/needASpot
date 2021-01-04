@@ -44,9 +44,13 @@
 .reviewContainer h2 {
     width: 100%;
     margin: 0;
+    text-align: left;
+    border-bottom: 1px solid lightgray;
+   
 }
 .reviewContainer h4 {
     margin: 0;
+   
 }
 
 .review {
@@ -58,6 +62,7 @@
 } 
 .reviewItems {
     padding-left: 10px;
+    text-align: left;
 }
 
 .trainerContainer{
@@ -105,4 +110,30 @@ h2 {
     margin-bottom: 10px;
     border-bottom: 1px solid lightgray;
     width: 100%;
+}
+
+#ratingCategories{
+    font-weight: bold;
+    font-size: 10px;
+    color:orangered;
+}
+
+#reviewText {
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#userImage{
+    width: 30px;
+    height: 30px;
+    padding-top: 15px;
+}
+
+.profilePicContainer{
+    align-self: baseline;
+}
+
+#bold {
+    font-weight: bold;
 }

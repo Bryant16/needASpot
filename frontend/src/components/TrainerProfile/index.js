@@ -6,6 +6,7 @@ import {getUserFavorites} from '../../store/user';
 import {getAllTrainers} from '../../store/trainer';
 import ReviewForm from '../ReviewForm';
 import './TrainerProfile.css';
+import user from '../../images/default-user.png'
 
 function TrainerProfile() {
   const dispatch = useDispatch();
@@ -21,9 +22,8 @@ function TrainerProfile() {
   const trainerLookUpId = Number(id);
  
   let trainerIsFavorited =  favorites.filter((fav)=> Number(fav.trainerId) === trainerLookUpId)
-    console.log('fav',trainerIsFavorited.length)
-  const [activeButton, setActiveButton] = useState();
-  // console.log(activeButton)
+  
+  
   
   const sessionUser = useSelector(state => state.session.user)
   const userId = Number(sessionUser.id);
@@ -35,8 +35,6 @@ function TrainerProfile() {
     let stars = 0;
     let count = 0
     if(singleTrainer){
-
-    
     singleTrainer.Reviews.forEach((review)=>{
       stars += review.stars
       count += 1;
@@ -60,10 +58,10 @@ function TrainerProfile() {
   const favorite = (e)=>{
     e.preventDefault();
     if(trainerIsFavorited.length > 0){
-      setActiveButton(false)
+      
       dispatch(removeFavoriteTrainer(userId,trainerLookUpId))
     }else{
-      setActiveButton(true)
+      
       dispatch(newFavoriteTrainer(userId,trainerLookUpId))
     }
   }
@@ -73,36 +71,34 @@ function TrainerProfile() {
     dispatch(getUserFavorites(sessionUser.id));
     dispatch(getAllTrainers())
     
-    console.log('active',activeButton)
   },[dispatch])
 
   return ( favorites.length > 0 && trainers.length >0 &&
     <div className='background'>
-      
       <div className='trainerPicture' style={{backgroundImage: `url(${singleTrainer.profileUrl})`}}></div>
       <div className='trainerContainer'>
       <h1>{singleTrainer.name}
-      <button className={activeButton ? `favoriteButton` : 'unfavorite'} onClick={favorite}><i class='far fa-heart'></i></button>
+      <button className={trainerIsFavorited.length > 0 ? `favoriteButton` : 'unfavorite'} onClick={favorite}><i class='far fa-heart'></i></button>
       </h1>
-      <h3>{starsReviews.stars}<i class="fas fa-star"></i>{starsReviews.reviews} reviews</h3>
+      <h3>{starsReviews.stars}<i class="fas fa-star"></i> Number of Reviews: {starsReviews.reviews}</h3>
       <div className='certs'>
-      <ul>certifications:{singleTrainer.certifications.replace('{','').replace('}', '').replace(/"/gi,'').split(',').map(cert=><li>{cert}</li>)}</ul>
+      <ul ><p id='bold'>Certifications:</p>{singleTrainer.certifications.replace('{','').replace('}', '').replace(/"/gi,'').split(',').map(cert=><li>{cert}</li>)}</ul>
       </div>
       <div className='education'>
-      <p>Education:</p>
+      <p id='bold'>Education:</p>
       <p>{singleTrainer.education}</p>
       </div>
       <div className='reviewContainer'>
       <h2>What people are saying</h2>
       {singleTrainer.Reviews.map((review) => (
         <div className='review'>
-          <div>
-          <h4 className='reviewItems'>picture</h4>
+          <div className='profilePicContainer'>
+          <h4 className='reviewItems'><img id='userImage'src={user}/></h4>
           </div>
           <div>
           <h4 className='reviewItems'><i class="fas fa-star"/>{review.stars}</h4> 
-          <p className='reviewItems'>overall {review.overall} knowledge {review.knowledge} Prof {review.profesionalism}Likely to Refer{review.refer}</p>
-          <p className='reviewItems'>{review.review}</p>
+          <p id='ratingCategories'className='reviewItems'>Overall: {review.overall}. Knowledge: {review.knowledge}. Profesional: {review.profesionalism}. Likely to Refer: {review.refer}.</p>
+          <p id='reviewText' className='reviewItems'>{review.review}</p>
           </div>
         </div>
       ))}

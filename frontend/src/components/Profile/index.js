@@ -24,7 +24,7 @@ function Profile() {
       dispatch(getAllTrainers(Number(userId)))
       dispatch(getUserFavorites(Number(userId)))
     },[dispatch])
-    console.log(currUser)
+    console.log(userStateInfo)
     return (
       <div className='profileContainer'>
       <h1>Hello, {currUser.username}</h1>
