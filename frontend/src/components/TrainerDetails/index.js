@@ -6,15 +6,27 @@ import "./TrainerDetails.css";
 import trainer from "../../images/trainer.png";
 import {getAllTrainers} from '../../store/trainer';
 
-function TrainerDetails({ id, name, location, image }) {
+function TrainerDetails({ id, name, location, image, reviews }) {
  
+ 
+  const getStars = ()=>{
+    let stars= 0
+    let count = 0
+    if(reviews.length > 0){
+      reviews.forEach(review =>{
+        stars += review.stars
+        count ++
+      })
+    }
+    return Math.floor(stars/count)
+  }
 
   return (
     <ul class='card'>
       {/* <NavLink to={`/trainer/${id}`}> */}
       <img className="trainerimage" src={image} alt="" />
       <li className='trainerName'>{name}</li>
-      <li className='trainerReviews'><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>10 reviews</li>
+      <li className='trainerReviews'>{getStars()} <i class="fas fa-star"></i> Reviews: {reviews.length}</li>
       <li>{location}</li>
       {/* </NavLink> */}
     </ul>
