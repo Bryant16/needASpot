@@ -62,7 +62,7 @@ const ReviewForm = () =>{
         
         <form className='reviewForm'>
             <div className='inputContainer'>
-                <label>stars
+                <label>Stars
                 </label>
                 <div>
                 <input type='radio' value={1} checked={stars === '1'}onChange={e=>setStars(e.target.value)} />

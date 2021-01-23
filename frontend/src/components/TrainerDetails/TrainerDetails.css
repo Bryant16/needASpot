@@ -18,12 +18,13 @@
     top: 0;
     transition: top ease 0.5s;
     text-align: left;
-
+    
 }
 
 .trainerCards ul:hover {
     box-shadow: 2px 2px 10px 2px lightgray;
-    top: -15px;
+    top: -10px;
+    
 }
 
 .trainerCards li {

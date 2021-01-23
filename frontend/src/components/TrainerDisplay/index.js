@@ -18,7 +18,7 @@ useEffect(()=>{
 },[dispatch])
   
   return (
-    <div>
+    <div className='trainerCategoriesContainer'>
     <h2 className='trainerCategories'>{category}</h2>
     <div className="trainerCards">
       {trainers.map(train=>{
