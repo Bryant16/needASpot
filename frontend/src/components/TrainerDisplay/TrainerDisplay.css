@@ -4,6 +4,8 @@
     text-decoration: none;
     overflow-x:scroll;
     width: 100%;
+    opacity: 1;
+    background-color: white;
 }
 
 .trainerCards::-webkit-scrollbar{

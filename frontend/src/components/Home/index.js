@@ -4,6 +4,7 @@ import TrainerProfile from '../TrainerProfile';
 import Profile from '../Profile';
 import ReviewForm from "../ReviewForm";
 
+
 function Home() {
   //grab all the trainers in the database given a criteria, training style.
   //display those trainers
