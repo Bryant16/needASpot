@@ -9,9 +9,19 @@
 }
 
 .trainerCards::-webkit-scrollbar{
-    display: none;
+    /* display: none; */
+    
+    width: 10px;
+    
+    /* display: -webkit-box; */
+    /* -webkit-overflow-scrolling: touch; */
 }
-
+.trainerCards::-webkit-scrollbar-thumb{
+  background: red;
+}
+.trainerCards::-webkit-scrollbar-track{
+    background: white;
+}
 .trainerCategories {
     padding: 20px;
     border-bottom: 1px solid lightgray;
