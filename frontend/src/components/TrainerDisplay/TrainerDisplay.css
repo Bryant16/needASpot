@@ -1,14 +1,13 @@
 .trainerCards {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     text-decoration: none;
-    overflow-x:scroll;
-    width: 100%;
+    /* overflow-x:scroll; */
+    /* width: 100%; */
 }
 
-.trainerCards::-webkit-scrollbar{
-    display: none;
-}
 
 .trainerCategories {
     padding: 20px;

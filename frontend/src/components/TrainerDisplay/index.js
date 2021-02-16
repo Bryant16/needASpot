@@ -10,8 +10,7 @@ function TrainerDisplay({category}) {
   const trainers = useSelector((state) => {
     return state.trainer;
   });
-  // .slice(0,8)
-//  console.log(trainers.map(train=> train.specialities.includes('Strength')))
+  
 useEffect(()=>{
   dispatch(getAllTrainers())
   
