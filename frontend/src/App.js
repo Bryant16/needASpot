@@ -23,6 +23,9 @@ function App() {
       {sessionUser && <Home />}
       {isLoaded && (
         <Switch>
+          <Route path='/'>
+            <SignupFormPage />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
           </Route>
