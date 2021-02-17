@@ -1,10 +1,7 @@
 'use strict';
 
 const faker = require("faker");
-// console.log(parseInt(faker.random.number({
-//   'min': 0,
-//   'max': 9
-// }),10))
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*

@@ -9,7 +9,6 @@ const ReviewForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [stars, setStars] = useState(5);
-  const [starCheck, setStarCheck] = useState(false);
   const [overall, setOverall] = useState(5);
   const [knowledge, setKnowledge] = useState(5);
   const [prof, setProf] = useState(5);

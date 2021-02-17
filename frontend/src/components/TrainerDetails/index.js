@@ -1,10 +1,5 @@
-import { useEffect } from "react";
-import {useSelector} from 'react-redux';
-import {NavLink} from 'react-router-dom'
-import {useDispatch} from 'react-redux';
+
 import "./TrainerDetails.css";
-import trainer from "../../images/trainer.png";
-import {getAllTrainers} from '../../store/trainer';
 
 function TrainerDetails({ id, name, location, image, reviews }) {
  
@@ -22,13 +17,11 @@ function TrainerDetails({ id, name, location, image, reviews }) {
   }
 
   return (
-    <ul class='card'>
-      {/* <NavLink to={`/trainer/${id}`}> */}
+    <ul className='card'>
       <img className="trainerimage" src={image} alt="" />
       <li className='trainerName'>{name}</li>
-      <li className='trainerReviews'>{getStars()} <i class="fas fa-star"></i> Reviews: {reviews.length}</li>
+      <li className='trainerReviews'>{getStars()} <i className="fas fa-star"></i> Reviews: {reviews.length}</li>
       <li>{location}</li>
-      {/* </NavLink> */}
     </ul>
   );
 }

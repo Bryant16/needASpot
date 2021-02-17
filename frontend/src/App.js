@@ -7,7 +7,7 @@ import Home from './components/Home';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import {getAllTrainers} from './store/trainer';
-import {getUserFavorites} from './store/user';
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

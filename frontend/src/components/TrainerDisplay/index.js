@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import './TrainerDisplay.css';
 import { useEffect } from "react";
 import { getAllTrainers } from "../../store/trainer";
-import { combineReducers } from "redux";
+
 function TrainerDisplay({category}) {
   const dispatch = useDispatch();
   const trainers = useSelector((state) => {
@@ -22,9 +22,10 @@ useEffect(()=>{
     <div className="trainerCards">
       {trainers.map(train=>{
         return(
-        <NavLink  to={`/trainer/${train.id}`}>  
+        <NavLink key={train.id} to={`/trainer/${train.id}`}>  
         <TrainerDetails key={train.id} id={train.id} name={train.name} location={train.address} reviews={train.Reviews} image={train.profileUrl || ''}/>
         </NavLink> 
+        
         )
       })}
     </div>

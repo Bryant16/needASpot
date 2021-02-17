@@ -1,10 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {newFavoriteTrainer, removeFavoriteTrainer} from '../../store/user';
 import {getUserFavorites} from '../../store/user';
 import {getAllTrainers} from '../../store/trainer';
-import ReviewForm from '../ReviewForm';
 import './TrainerProfile.css';
 import user from '../../images/default-user.png'
 
@@ -71,7 +70,7 @@ function TrainerProfile() {
     dispatch(getUserFavorites(sessionUser.id));
     dispatch(getAllTrainers())
     
-  },[dispatch])
+  },[dispatch, sessionUser.id])
 
   return (  trainers.length >0 &&
     <div className='background'>
@@ -93,10 +92,10 @@ function TrainerProfile() {
       {singleTrainer.Reviews.map((review) => (
         <div className='review'>
           <div className='profilePicContainer'>
-          <h4 className='reviewItems'><img id='userImage'src={user}/></h4>
+          <h4 className='reviewItems'><img id='userImage' src={user} alt=""/></h4>
           </div>
           <div>
-          <h4 className='reviewItems'><i class="fas fa-star"/>{review.stars}</h4> 
+          <h4 className='reviewItems'><i className="fas fa-star"/>{review.stars}</h4> 
           <p id='ratingCategories'className='reviewItems'>Overall: {review.overall}. Knowledge: {review.knowledge}. Profesional: {review.profesionalism}. Likely to Refer: {review.refer}.</p>
           <p id='reviewText' className='reviewItems'>{review.review}</p>
           </div>

@@ -1,6 +1,5 @@
 import {fetch} from './csrf';
 
-const ADDREVIEW = '/trainers/ADDREVIEW';
 const ALL_TRAINERS = '/trainers/ALL_TRAINERS';
 const REVIEWS_FOR_A_TRAINER = '/trainers/REVIEWS_FOR_A_TRAINER';
 

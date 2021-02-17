@@ -37,7 +37,6 @@ router.get('/trainerStyle/:type', asyncHandler(async(req, res)=>{
 
 router.get('/reviews/:trainerId', asyncHandler(async (req, res)=>{
     const {trainerId} = req.params;
-    console.log(trainerId, 'TRAINER ID IS HERE')
     const reviews = await Review.findAll({
         where:{
             trainerId: trainerId

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {NavLink, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const buttonToStyle = document.querySelectorAll("user_profile_logout_button")
   let history = useHistory();
   const openMenu = (e) => {
     if (showMenu) return;

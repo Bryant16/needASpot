@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Home from '../Home'
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
@@ -34,7 +33,7 @@ function Navigation({ isLoaded }){
   return (
     <ul className='navBar'>
       <li>
-        <NavLink exact to="/"><img className='logo' src={logo} /></NavLink>
+        <NavLink exact to="/"><img className='logo' alt="" src={logo} /></NavLink>
       </li>
       <li>
       <div className="my_page_links">
