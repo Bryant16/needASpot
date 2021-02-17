@@ -12,10 +12,7 @@ module.exports = {
       */
       return queryInterface.bulkInsert('Reviews', [
         {
-          userId: (Number(faker.random.number({
-            'min': 1,
-            'max': 13
-          }))) ,
+          userId: 1,
           trainerId: (Number(faker.random.number({
             'min': 1,
             'max': 20
@@ -45,10 +42,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userId: (Number(faker.random.number({
-            'min': 0,
-            'max': 13
-          }))) ,
+          userId: 2 ,
           trainerId: (Number(faker.random.number({
             'min': 0,
             'max': 20
@@ -78,10 +72,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userId: (Number(faker.random.number({
-            'min': 0,
-            'max': 13
-          }))) ,
+          userId: 1,
           trainerId: (Number(faker.random.number({
             'min': 0,
             'max': 20
@@ -111,10 +102,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userId: (Number(faker.random.number({
-            'min': 0,
-            'max': 13
-          }))) ,
+          userId: 2,
           trainerId: (Number(faker.random.number({
             'min': 0,
             'max': 20
@@ -144,10 +132,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          userId: (Number(faker.random.number({
-            'min': 0,
-            'max': 13
-          }))) ,
+          userId: 3,
           trainerId: (Number(faker.random.number({
             'min': 0,
             'max': 20
