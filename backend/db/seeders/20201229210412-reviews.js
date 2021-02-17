@@ -13,11 +13,11 @@ module.exports = {
       return queryInterface.bulkInsert('Reviews', [
         {
           userId: (Number(faker.random.number({
-            'min': 0,
+            'min': 1,
             'max': 13
           }))) ,
           trainerId: (Number(faker.random.number({
-            'min': 0,
+            'min': 1,
             'max': 20
           }))),
           review: faker.lorem.sentence(),
