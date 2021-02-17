@@ -6,8 +6,9 @@ import * as sessionActions from '../../store/session';
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const buttonToStyle = document.querySelectorAll("user_profile_logout_button")
   let history = useHistory();
-  const openMenu = () => {
+  const openMenu = (e) => {
     if (showMenu) return;
     setShowMenu(true);
   };
@@ -15,7 +16,7 @@ function ProfileButton({ user }) {
   useEffect(() => {
     if (!showMenu) return;
 
-    const closeMenu = () => {
+    const closeMenu = (e) => {
       setShowMenu(false);
     };
 
@@ -35,7 +36,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu} >
+      <button id='user_profile_logout_button' onClick={openMenu} >
         <i className="far fa-user" />
       </button>
       {showMenu && (

@@ -11,8 +11,6 @@
   padding: 0px;
   display: flex;
   list-style: none;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
@@ -30,29 +28,23 @@
   padding-right: 10px;
   font-size: 20px;
 }
-
+#user_profile_logout_button{
+  margin-right: 6.7em;
+  margin-left: 6.7em;
+}
 .items > button {
-  margin-right: 10px;
-  margin-left: 10px;
-  border-radius: 20px;
-  border-width: 1px;
-  padding: 8px;
+  
+  border-radius: 20em;
+  border-width: .1em;
+  padding: 1em;
   outline: none;
   /* background-color: lightgray; */
 }
 
-.fa-bell {
-  padding-right: 20px;
-  padding-left: 10px;
-}
 
-.fa-calendar {
-  padding-right: 10px;
-  padding-left: 10px;
-}
 
 .fa-user-circle {
-  font-size: 30px;
+  font-size: 10em;
   font-weight: bold;
   color: black;
 }
@@ -60,7 +52,6 @@
 .profile-dropdown {
   border: 1px solid rgb(168, 165, 165);
   border-radius: 2px;
-  position: fixed;
  transform: translateX(-50%);
  list-style: none;
  padding: 5px;
@@ -79,13 +70,32 @@ border: none;
 background-color:rgba(255, 255, 255, 0);
 font-size: 18px;
 padding: 0;
-padding-right: 15px;
+padding-right: 7.3em;
 padding-top: 5px;
 outline: none;
 }
-
+/* .profileButtons{
+  padding-right: 5em;
+} */
 .profileButtons:hover {
   background-color: rgb(241, 238, 238);
 }
 
+.my_page_links {
+  display: flex;
+  justify-content: center;
+}
 
+.my_page_links p {
+  font-size: 1.5em;
+  margin-left: .2em;
+  margin-right: .2em;
+}
+
+.my_page_links a {
+  color: black;
+}
+
+.my_page_links a:hover{
+  color: blue;
+}
