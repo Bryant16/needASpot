@@ -1,7 +1,12 @@
 .signup_container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-image: url('https://s3-media0.fl.yelpcdn.com/bphoto/1HVyX4zdFsHU5URjSoeTtA/o.jpg');
+    background-size: cover;
+    background-position: top;
 }
 
 .signup_container form {
@@ -9,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
     padding-right: 3em;
     padding-left: 3em;
     padding-bottom: 3em;
