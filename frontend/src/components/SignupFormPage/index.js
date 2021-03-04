@@ -27,6 +27,15 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const demoUser = (e)=>{
+    e.preventDefault();
+    return dispatch(sessionActions.login({ credential:'Demo-lition', password:'password' })).catch(
+      (res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      }
+    );
+  }
+
   return (
     <div className='signup_container'>
       <h1>Sign Up</h1>
@@ -71,6 +80,7 @@ function SignupFormPage() {
             required
           />
         <button type="submit">Sign Up</button>
+        <button class='sign_up_demo_user' onClick={demoUser}>Demo User</button>
       </form>
     </div>
   );
